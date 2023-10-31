@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login page</title>
+	<link rel="stylesheet" type="text/css" href="registration.css">
+
+		
+</head>
+<body>
+	
+	
+		
+			 
+<div class="register">
+
+	<form action="thankyou.html" onsubmit="return validation()" class="white">
+
+		 <center>
+      		<h2>Registration Form</h2>
+            <p><b>Name</b><br>
+		           <input type="text" name="Username" id="name" placeholder="Enter name">
+		           <span id="nameError" class="error"></span>
+		        </p>
+
+      			<p><b>Email</b><br>
+      				<input type="email" name="email" id="email" placeholder="Enter email">
+               <span id="emailError" class="error"></span>
+      			</p>
+	       
+      			<p><b>Mobile</b><br>
+	             <input type="number" name="Usermobile" id="mobile" placeholder="Enter mobile" >
+	             <span id="mobileError" class="error"></span>
+	          </p>
+
+	          <p><b>Occupation:</b>
+              <select id="occupation">
+      	       <option value=" ">Select occupation</option>
+      	       <option value="student">Student</option>
+      	       <option value="teacher">Teacher</option>
+      	       <option value="lawyer">Lawyer</option>
+              </select>
+            <span id="occupationError" class="error"></span>
+	      </p>
+
+	           <p><b>Comment</b>
+	                 <textarea class="p" cols="25" rows="5"></textarea>
+             </p>
+
+             <p>
+		          <button type="submit" class="btn">Submit</button>
+	            </p>
+             
+       </center>
+               
+</div>
+     </form>
+                	
+   <script type="text/javascript">
+   function validation(){
+			var flag=0;
+			var namestring=/(^["A-Z a-z"]{1,20})$/;
+
+			var name=document.getElementById("name").value
+			if(name==""){
+				document.getElementById("nameError").innerHTML="<br><b>Enter Name</b>";
+				flag=1;
+			}
+			else if(!name.match(namestring))
+			{
+				document.getElementById("nameError").innerHTML="<br><b>Only character data</b>";
+				flag=1;
+			}
+			else{
+				document.getElementById("nameError").innerHTML=" ";
+			}
+
+
+			 var emailpattern= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+		    var email=document.getElementById("email").value
+		    if(email=="")
+		    {
+		    	document.getElementById("emailError").innerHTML="<br><b>Enter email</b>";
+		    	flag=1;
+		    }
+		    else if(!mobile.match(emailpattern))
+		    {
+		    	document.getElementById("emailError").innerHTML="<br><b>Uppercase and lowercase letters (A-Z and a-z) Numeric characters (0-9)Special characters - ! # $ % & ' * + - / = ? ^ _ ` { | } ~</b>";
+		    	flag=1;
+		    }
+		    else
+		    {
+		    document.getElementById("emailError").innerHTML=" ";	
+		    }
+
+
+
+			var mobilepattern=/(^[6-9]{1}[0-9]{9})$/;
+            
+		    var mobile=document.getElementById("mobile").value
+		    if(mobile=="")
+		    {
+		    	document.getElementById("mobileError").innerHTML="<br><b>Enter mobile Number</b>";
+		    	flag=1;
+		    }
+		    else if(!mobile.match(mobilepattern))
+		    {
+		    	document.getElementById("mobileError").innerHTML="<br><b>Mobile no. must be of 10 digits and first digit from(6-9) range</b>";
+		    	flag=1;
+		    }
+		    else
+		    {
+		    document.getElementById("mobileError").innerHTML=" ";	
+		    }
+
+
+		    var occupation=document.getElementById("occupation").value;
+		    if(occupation==" ")
+		    {
+		    	document.getElementById("occupationError").innerHTML="<br><b>Select occupation</b>";
+		    	flag=1;
+		    }
+		    else
+		    {
+		    	document.getElementById("occupationError").innerHTML=" ";
+		    }
+              if(flag==1)
+              {
+              	return false;
+              }
+}
+</script>
+
+
+</body>
+</html>
